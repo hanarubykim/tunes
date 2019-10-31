@@ -24,7 +24,8 @@ struct node * findArtist_Song(char artist[], char song[]);
 struct node * firstSong(char artist[]);
 
 // Return a pointer to random element in the list.
-struct node * randomElement(struct song_node *)
+struct node * randomElement(struct song_node *);
+
 // remove a single specified node from the list
 struct node * remove_node(struct song_node *front, char nameData); //i think we remove by name, not by artist
 
