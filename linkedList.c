@@ -7,6 +7,8 @@
 //   struct song_node *next;
 // };
 
+
+
 // insert nodes at the front
 struct node * insert_front(struct song_node * input, char artist[]){
   struct node *first = malloc(sizeof(struct node));
