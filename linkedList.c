@@ -10,7 +10,7 @@
 
 
 // insert nodes at the front
-struct node * insert_front(struct song_node * input, char artist[]){
+struct song_node * insert_front(struct song_node * input, char artist[]){
   struct node *first = malloc(sizeof(struct node));
   first->artist = artist[];
   first->next = input;
@@ -19,7 +19,7 @@ struct node * insert_front(struct song_node * input, char artist[]){
 
 
 // insert nodes in order (alphabetical by Artist then by Song)
-struct node * alphabetical(struct song_node *, char artist[], char song[]);
+struct song_node * alphabetical(struct song_node * n, char artist[], char song[]);
 
 // print the entire list
 void print_list(struct song_node * x){
@@ -37,16 +37,16 @@ void print_list(struct song_node * x){
   }
 
 // find and return a pointer to a node based on artist and song name
-struct node * findArtist_Song(char artist[], char song[]);
+struct song_node * findArtist_Song(char artist[], char song[]);
 
 // find and return a pointer to the first song of an artist based on artist name
-struct node * firstSong(char artist[]);
+struct song_node * firstSong(char artist[]);
 
 // Return a pointer to random element in the list.
-struct node * randomElement(struct song_node *);
+struct song_node * randomElement(struct song_node * n);
 
 // remove a single specified node from the list
-struct node * remove_node(struct song_node *front, char nameData); //i think we remove by name, not by artist
+struct song_node * remove_node(struct song_node *front, char nameData); //i think we remove by name, not by artist
 
 // free the entire list
-struct node * free_list(struct song_node *);
+struct song_node * free_list(struct song_node * n);
