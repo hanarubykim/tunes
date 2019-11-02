@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "linkedList.h"
 
 // struct song_node{
 //   char name[100];
@@ -10,9 +11,10 @@
 
 
 // insert nodes at the front
-struct song_node * insert_front(struct song_node * input, char artist[]){
-  struct node *first = malloc(sizeof(struct node));
-  first->artist = artist[];
+struct song_node * insert_front(struct song_node * input, char nInput[100], char aInput[100]){
+  struct node *first = malloc(sizeof(struct song_node));
+  strcpy(first->name, nInput);
+  strcpy(first->artist, aInput);
   first->next = input;
   return first;
 }
@@ -37,10 +39,19 @@ void print_list(struct song_node * x){
   }
 
 // find and return a pointer to a node based on artist and song name
-struct song_node * findArtist_Song(char artist[], char song[]);
+struct song_node * findArtist_Song(struct song_node *input, char aInput[100], char nInput[100]);
 
 // find and return a pointer to the first song of an artist based on artist name
-struct song_node * firstSong(char artist[]);
+struct song_node * firstSong(struct song_node *first, char aInput[100]){
+  while (first != NULL){
+    if (strcmp(first->artist, aInput) == 0){
+      return first;
+    }
+    first = first->next;
+  }
+  return NULL;
+}
+
 
 // Return a pointer to random element in the list.
 struct song_node * randomElement(struct song_node * n);
