@@ -57,7 +57,18 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 struct song_node * randomElement(struct song_node * n);
 
 // remove a single specified node from the list
-struct song_node * remove_node(struct song_node *front, char nameData); //i think we remove by name, not by artist
+struct song_node * remove_node(struct song_node *front, char aInput[100], char nInput[100]){
+
+}
 
 // free the entire list
-struct song_node * free_list(struct song_node * n);
+struct song_node * free_list(struct song_node *n){
+  struct node *temp;
+  while (n->next != 0){
+    printf("freeing node: %s by %s\n", n->name, n->artist);
+    temp = n->next;
+    free(n);
+    n = temp;
+  }
+  return temp;
+}
