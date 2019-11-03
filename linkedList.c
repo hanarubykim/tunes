@@ -84,14 +84,15 @@ struct song_node * randomElement(struct song_node * n){
 
 struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
   if(front == NULL){
-    printf("Empty.\n");
     return front;
-  }else{
+  }
+  else{
     if(strcmp(front->artist, artist) == 0 && strcmp(front->name, name) == 0){
       struct song_node * newFront = front->next;
       free(front);
       return newFront;
-    }else{
+    }
+    else{
       struct song_node * current = front;
       struct song_node * track = front->next;
       while(track != NULL){
@@ -107,8 +108,6 @@ struct song_node * remove_node(struct song_node *front, char nInput[100], char a
     }
   }
 }
-
-
 
 // free the entire list
 struct song_node * free_list(struct song_node *n){
