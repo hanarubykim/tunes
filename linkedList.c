@@ -40,6 +40,22 @@ struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput
    }
    return front;
  }
+
+struct song_node * insert_order(struct song_node * n, char nInput[100], char aInput[100]){
+  if (n == NULL){
+    return insert_front(n, nInput, aInput);
+  }
+  struct song_node *temp = n;
+  struct song_node *prev = NULL; //stores previous node
+  while (temp && songcmp(temp, nInput, aInput) <= 0){
+    prev = temp;
+    temp = temp->next;
+  }
+  if (prev == NULL){ //insert at front of list
+    return insert_front(temp, nInput, aInput);
+  }
+  prev->next = insert_front(temp, nInput, aInput);
+  return n;
 }
 
 // print the entire list
@@ -49,35 +65,24 @@ void print_list(struct song_node * x){
   }
   else{
     printf("[");
-    while(x->next != NULL){
-      printf("%s by %s |", x->name, x->artist);
+    while(x != NULL){
+      printf(" %s by %s |", x->name, x->artist);
       x = x-> next;
     }
     printf("]\n");
     }
   }
 
+
 // find and return a pointer to a node based on artist and song name
-//need to test -hana
-struct song_node * findArtist_Song(struct song_node *input, char aInput[100], char nInput[100]){
-  struct song_node *first = firstSong(front, aInput[]);
-  struct song_node *current = first;
-
-  if(current != NULL && current->name == nInput){
-    current = current->next;
-    free(current);
-    return first;
+struct song_node * findName_Artist(struct song_node *input, char nInput[100], char aInput[100]){
+  while (input != NULL){
+    if (songcmp(input, nInput, aInput) == 0){
+      return input;
+    }
+    input = input->next;
   }
-
-  while(current != NULL && current->name != nInput){
-    current = current->next;
-  }
-
-  if(current == NULL){
-    return first;
-  }
-
-  return current;
+  return NULL;
 }
 
 
@@ -95,28 +100,60 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 
 // Return a pointer to random element in the list.
 struct song_node * randomElement(struct song_node * n){
-
-
-
-
+  int i = rand() % 25 + 1;
+    struct song_node * current = n;
+    for(;i > 0;i--){
+      if(n->next == NULL){
+        n = current;
+      }
+      n = n->next;
+    }
+    return n;
 }
 
 // remove a single specified node from the list
 //need to test -hana
-struct song_node * remove_node(struct song_node *front, char aInput[100], char nInput[100]){
+// struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
+//   //find artist node --> current refers to the first song of the artist
+//   struct song_node *first = front;
+//   struct song_node *current = first;
+//   struct song_node *previous = current;
+//
+//   if(current != NULL && current->name == nInput){
+//     current = current->next;
+//     free(current);
+//     first = current->next;
+//     return first;
+//   }
+//
+//   while(current != NULL && current->name != nInput){
+//     previous = current;
+//     current = current->next;
+//   }
+//
+//   if(current == NULL){
+//     return first;
+//   }
+//
+//   previous->next = current->next;
+//   free(current);
+//   return first;
+// }
+
+struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
   //find artist node --> current refers to the first song of the artist
   struct song_node *first = front;
   struct song_node *current = first;
   struct song_node *previous = current;
 
-  if(current != NULL && current->name == nInput){
+  if(current != NULL && songcmp(current, nInput, aInput) == 0){
     current = current->next;
     free(current);
     first = current->next;
     return first;
   }
 
-  while(current != NULL && current->name != nInput){
+  while(current != NULL && songcmp(current, nInput, aInput) != 0){
     previous = current;
     current = current->next;
   }
@@ -130,6 +167,9 @@ struct song_node * remove_node(struct song_node *front, char aInput[100], char n
   return first;
 }
 
+
+
+
 // free the entire list
 struct song_node * free_list(struct song_node *n){
   struct song_node *temp;
@@ -140,4 +180,13 @@ struct song_node * free_list(struct song_node *n){
     n = temp;
   }
   return temp;
+}
+
+//helper function
+int songcmp(struct song_node *a, char bName[100], char bArtist[100]){
+  int num = strcmp(a->artist, bArtist);
+  if (num != 0){
+    return num;
+  }
+  return strcmp(a->name, bName);
 }
