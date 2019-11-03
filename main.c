@@ -12,12 +12,12 @@ int main(){
   printf("\nTesting insert_front\n");
 
   printf("Inserting: thunderstruck by ac/dc\n");
-  insert_front(songs, "thunderstruck", "ac/dc");
+  songs = insert_front(songs, "thunderstruck", "ac/dc");
 
   printf("Inserting: alive by pearl jam\n");
-  insert_front(songs, "alive", "pearl jam");
+  songs = insert_front(songs, "alive", "pearl jam");
 
-  
+
   printf("Testing print_list: ");
   print_list(songs);
 

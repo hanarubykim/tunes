@@ -15,10 +15,10 @@ struct song_node * insert_front(struct song_node * input, char nInput[100], char
 
 
 ///insert nodes in order (alphabetical by Artist then by Song)
-struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput[]){
-
-
-}
+// struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput[]){
+//
+//
+// }
 
 // print the entire list
 void print_list(struct song_node * x){
@@ -27,18 +27,19 @@ void print_list(struct song_node * x){
   }
   else{
     printf("[");
-    while(x->next != NULL){
-      printf("%s by %s |", x->name, x->artist);
+    while(x != NULL){
+      printf(" %s by %s |", x->name, x->artist);
       x = x-> next;
     }
     printf("]\n");
     }
   }
 
+
 // find and return a pointer to a node based on artist and song name
 //need to test -hana
 struct song_node * findArtist_Song(struct song_node *input, char aInput[100], char nInput[100]){
-  struct song_node *first = firstSong(front, aInput[]);
+  struct song_node *first = firstSong(input, aInput);
   struct song_node *current = first;
 
   if(current != NULL && current->name == nInput){
@@ -72,12 +73,12 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 
 
 // Return a pointer to random element in the list.
-struct song_node * randomElement(struct song_node * n){
-
-
-
-
-}
+// struct song_node * randomElement(struct song_node * n){
+//
+//
+//
+//
+// }
 
 // remove a single specified node from the list
 //need to test -hana
