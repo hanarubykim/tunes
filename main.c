@@ -81,16 +81,72 @@ int main(){
 
   printf("Looking for daughter by pearl jam\n");
 
-  struct song_node *p1 = NULL;
-  p1 = findName_Artist(songs, "daughter", "pearl jam");
+  p = findName_Artist(songs, "daughter", "pearl jam");
 
-  if (p1 == NULL){
+  if (p == NULL){
     printf("node not found\n\n");
   }
   else{
     printf("node found!");
-    printf(" %s by %s |\n\n", p1->name, p1->artist);
+    printf(" %s by %s |\n", p->name, p->artist);
   }
+
+  printf("\n===============================================\n");
+
+  printf("Testing firstSong\n\n");
+
+  printf("Looking for [pink floyd]\n");
+  p = firstSong(songs, "pink floyd");
+  if (p == NULL){
+    printf("artist not found\n");
+  }
+  else{
+    printf("artist found!");
+    print_list(p);
+  }
+
+  printf("\nLooking for [pearl jam]\n");
+  p = firstSong(songs, "pearl jam");
+  if (p == NULL){
+    printf("artist not found\n");
+  }
+  else{
+    printf("artist found!");
+    print_list(p);
+  }
+
+  printf("\nLooking for [presidents of the united states of america]\n");
+  p = firstSong(songs, "presidents of the united states of america");
+  if (p == NULL){
+    printf("artist not found\n");
+  }
+  else{
+    printf("artist found!");
+    print_list(p);
+  }
+
+  printf("\n===============================================\n");
+
+  printf("Testing songcmp (helper function)\n\n");
+
+  struct song_node *a = NULL;
+  a = insert_front(a, "even flow", "pearl jam");
+
+  printf("Comparing [pearl jam: even flow] to [pearl jam: even flow]\n");
+  printf("%d\n", songcmp(a, "even flow", "pearl jam"));
+
+  printf("Comparing [pearl jam: even flow] to [pearl jam: alive]\n");
+  printf("%d\n", songcmp(a, "alive", "pearl jam"));
+
+  a = NULL;
+  a = insert_front(a, "alive", "pearl jam");
+
+  printf("Comparing [pearl jam: alive] to [pearl jam: even flow]\n");
+  printf("%d\n", songcmp(a, "even flow", "pearl jam"));
+
+
+
+
 
 
   return 0;
