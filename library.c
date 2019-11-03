@@ -73,8 +73,8 @@ void printForArtist(struct song_node *input[27], char aInput[100]){
 // TESTED AND WORKS
 void printLibrary(struct song_node *input[27]){
   int i;
-  for(i = 0 ; i < 27; i++){
-    printForLetter(input[i]);
+  for(i = 'a'; i < 'a' + 27; i++){
+    printForLetter(input, i);
   }
 }
 
@@ -96,6 +96,8 @@ void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100])
 
 // Clear the library.
 void clearLibrary(struct song_node *input[27]){
-
-
+  int i;
+  for(i = 0 ; i < 27; i++){
+    printForLetter(input, i);
+  }
 }

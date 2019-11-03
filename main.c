@@ -193,7 +193,10 @@ int main(){
   for (i = 0; i < 27 ; i++){
     input[i] = NULL;
   }
-  //sorry christy this was the only way i was gonna stay sane while tryna code LMAO
+  printf("Printing out an empty library...\n");
+  printLibrary(input);
+  printf("\n\n");
+
   addSong(input, "home", "seventeen");
   addSong(input, "dwc", "seventeen");
   addSong(input, "mansae", "seventeen");
@@ -206,21 +209,22 @@ int main(){
   printForArtist(input, "seventeen");
   printf("\n\n");
 
-  printf("Printing for the letter S");
+  printf("Printing for the letter S\t");
   printForLetter(input, 's');
   printf("\n\n");
 
-  printf"Printing for the letter B");
-  printforLetter(input, 'b');
+  printf("Printing for the letter B\t");
+  printForLetter(input, 'b');
   printf("\n\n");
 
   printf("Let's print out everything!\n");
   printLibrary(input);
   printf("\n\n");
-  
+
   printf("Let's delete the song dwc!\n");
   deleteSong(input, "dwc", "seventeen");
   printLibrary(input);
+  printf("\n\n");
 
   return 0;
 }
