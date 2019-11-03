@@ -144,6 +144,40 @@ int main(){
   printf("Comparing [pearl jam: alive] to [pearl jam: even flow]\n");
   printf("%d\n", songcmp(a, "even flow", "pearl jam"));
 
+  printf("\n===============================================\n");
+
+  printf("Testing randomElement\n\n");
+
+  p = NULL;
+
+  p = randomElement(songs);
+  printf("%s by %s |\n", p->name, p->artist);
+
+  p = randomElement(songs);
+  printf("%s by %s |\n", p->name, p->artist);
+
+  p = randomElement(songs);
+  printf("%s by %s |\n", p->name, p->artist);
+
+  p = randomElement(songs);
+  printf("%s by %s |\n", p->name, p->artist);
+
+  printf("\n===============================================\n");
+
+  printf("Testing remove_node\n\n");
+
+  printf("Testing print_list: ");
+  print_list(songs);
+
+  printf("\nRemoving [pearl jam: alive]\n");
+
+  songs = remove_node(songs, "alive", "pearl jam");
+  print_list(songs);
+
+  printf("\n\nRemoving [pearl jam: yellow ledbetter]\n");
+
+  songs = remove_node(songs, "yellow ledbetter", "pearl jam");
+  print_list(songs);
 
 
 
