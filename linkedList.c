@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "linkedList.h"
 
-// struct song_node{ char name[100]; char artist[100]; struct song_node *next;
-
 // insert nodes at the front
 struct song_node * insert_front(struct song_node * input, char nInput[100], char aInput[100]){
   struct song_node *first = malloc(sizeof(struct song_node));
@@ -111,49 +109,22 @@ struct song_node * randomElement(struct song_node * n){
     return n;
 }
 
-// remove a single specified node from the list
+//remove a single specified node from the list
 //need to test -hana
-// struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
-//   //find artist node --> current refers to the first song of the artist
-//   struct song_node *first = front;
-//   struct song_node *current = first;
-//   struct song_node *previous = current;
-//
-//   if(current != NULL && current->name == nInput){
-//     current = current->next;
-//     free(current);
-//     first = current->next;
-//     return first;
-//   }
-//
-//   while(current != NULL && current->name != nInput){
-//     previous = current;
-//     current = current->next;
-//   }
-//
-//   if(current == NULL){
-//     return first;
-//   }
-//
-//   previous->next = current->next;
-//   free(current);
-//   return first;
-// }
-
 struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
   //find artist node --> current refers to the first song of the artist
   struct song_node *first = front;
   struct song_node *current = first;
   struct song_node *previous = current;
 
-  if(current != NULL && songcmp(current, nInput, aInput) == 0){
+  if(current != NULL && current->name == nInput){
     current = current->next;
     free(current);
     first = current->next;
     return first;
   }
 
-  while(current != NULL && songcmp(current, nInput, aInput) != 0){
+  while(current != NULL && current->name != nInput){
     previous = current;
     current = current->next;
   }
@@ -166,7 +137,6 @@ struct song_node * remove_node(struct song_node *front, char nInput[100], char a
   free(current);
   return first;
 }
-
 
 
 
