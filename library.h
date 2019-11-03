@@ -10,7 +10,7 @@ struct song_node * findSong(struct song_node *input[27], char nInput[100], char 
 struct song_node * findArtist(struct song_node *input[27], char aInput[100]);
 
 // Print out all the entries under a certain letter.
-void printForLetter(struct song_node *input[27], char l);
+void printForLetter(struct song_node *input[27], char letter);
 
 // Print out all the songs of a certain artist
 void printForArtist(struct song_node *input[27], char aInput[100]);
