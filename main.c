@@ -63,6 +63,35 @@ int main(){
 
   printf("\n===============================================\n");
 
+  printf("Testing findName_Artist\n\n");
+
+  printf("Looking for even flow by pearl jam\n");
+
+  struct song_node *p = NULL;
+  p = findName_Artist(songs, "even flow", "pearl jam");
+
+  if (p == NULL){
+    printf("node not found\n\n");
+  }
+  else{
+    printf("node found!");
+    printf(" %s by %s |\n\n", p->name, p->artist);
+  }
+
+
+  printf("Looking for daughter by pearl jam\n");
+
+  struct song_node *p1 = NULL;
+  p1 = findName_Artist(songs, "daughter", "pearl jam");
+
+  if (p1 == NULL){
+    printf("node not found\n\n");
+  }
+  else{
+    printf("node found!");
+    printf(" %s by %s |\n\n", p1->name, p1->artist);
+  }
+
 
   return 0;
 }

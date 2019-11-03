@@ -19,7 +19,7 @@ struct song_node * insert_order(struct song_node * n, char nInput[100], char aIn
 void print_list(struct song_node * x);
 
 // find and return a pointer to a node based on artist and song name
-struct song_node * findArtist_Song(struct song_node *first, char aInput[100], char nInput[100]);
+struct song_node * findName_Artist(struct song_node *first, char nInput[100], char aInput[100]);
 
 // find and return a pointer to the first song of an artist based on artist name
 struct song_node * firstSong(struct song_node *first, char aInput[100]);
@@ -28,7 +28,7 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]);
 struct song_node * randomElement(struct song_node *);
 
 // remove a single specified node from the list
-struct song_node * remove_node(struct song_node *front, char aInput[100], char nInput[100]);
+struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]);
 
 // free the entire list
 struct song_node * free_list(struct song_node *);
