@@ -10,14 +10,21 @@ void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
 
 // Search for a song given song and artist name (return a pointer).
 struct song_node * findSong(struct song_node *input[27], char nInput[100], char aInput[100]){
-
-
+  struct song_node * result = malloc(sizeof(struct song_node));
+  int firstLetter = aInput[0] - 'a';
+  result = findName_Artist(input[firstLetter], nInput, aInput);
 }
 
 // Search for an artist.
 struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
+  struct song_node * result = malloc(sizeof(struct song_node));
+  int firstLetter = aInput[0] - 'a';
+  result = firstSong(input[firstLetter], nInput, aInput);
 
-
+  if(result == NULL){
+    printf("Artist not found.");
+  }
+  return result;
 }
 
 // Print out all the entries under a certain letter.
