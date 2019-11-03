@@ -87,7 +87,7 @@ struct song_node * remove_node(struct song_node *front, char nInput[100], char a
     return front;
   }
   else{
-    if(strcmp(front->artist, artist) == 0 && strcmp(front->name, name) == 0){
+    if(strcmp(front->artist, aInput) == 0 && strcmp(front->name, nInput) == 0){
       struct song_node * newFront = front->next;
       free(front);
       return newFront;
@@ -96,7 +96,7 @@ struct song_node * remove_node(struct song_node *front, char nInput[100], char a
       struct song_node * current = front;
       struct song_node * track = front->next;
       while(track != NULL){
-        if(strcmp(finder->artist, artist) == 0 && strcmp(finder->name, name) == 0){
+        if(strcmp(track->artist, aInput) == 0 && strcmp(track->name, nInput) == 0){
           current->next = track->next;
           free(track);
           return front;

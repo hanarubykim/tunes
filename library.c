@@ -34,10 +34,12 @@ struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
   if(result == NULL){
     printf("Artist not found.");
   }
+  printf("Artist: %s | First Song: %s ", result->artist, result->name);
   return result;
 }
 
 // Print out all the entries under a certain letter.
+//TESTED AND WORKS
 void printForLetter(struct song_node *input[27], char find){
   int firstLetter = find - 'a';
   if(firstLetter < 0){
@@ -56,10 +58,9 @@ void printForArtist(struct song_node *input[27], char aInput[100]){
   if(firstLetter < 0){
     firstLetter = 27;
   }
-  printf(track == NULL);
   track = firstSong(input[firstLetter], nInput, aInput);
   printf("[");
-  while(track != NULL){
+  while(track != NULL && strcmp(track->artist, aInput) == 0{
     printf(" %s by %s |", track->name, track->artist);
     track = track-> next;
     }
@@ -69,9 +70,12 @@ void printForArtist(struct song_node *input[27], char aInput[100]){
 
 
 // Print out the entire library.
+// TESTED AND WORKS
 void printLibrary(struct song_node *input[27]){
-
-
+  int i;
+  for(i = 0 ; i < 27; i++){
+    printForLetter(input[i]);
+  }
 }
 
 // Shuffle - print out a series of randomly chosen songs.
@@ -82,8 +86,12 @@ void shuffle(struct song_node *input[27]){
 
 // Delete a song
 void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100]){
-
-
+  struct song_node * track = malloc(sizeof(struct song_node));
+  int firstLetter = aInput[0] - 'a';
+  if(firstLetter < 0){
+    firstLetter = 27;
+  }
+  track = remove_node(input[firstLetter], nInput, aInput);
 }
 
 // Clear the library.

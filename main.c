@@ -210,6 +210,17 @@ int main(){
   printForLetter(input, 's');
   printf("\n\n");
 
+  printf"Printing for the letter B");
+  printforLetter(input, 'b');
+  printf("\n\n");
+
+  printf("Let's print out everything!\n");
+  printLibrary(input);
+  printf("\n\n");
+  
+  printf("Let's delete the song dwc!\n");
+  deleteSong(input, "dwc", "seventeen");
+  printLibrary(input);
 
   return 0;
 }
