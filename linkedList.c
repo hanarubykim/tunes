@@ -37,10 +37,26 @@ void print_list(struct song_node * x){
   }
 
 // find and return a pointer to a node based on artist and song name
+//need to test -hana
 struct song_node * findArtist_Song(struct song_node *input, char aInput[100], char nInput[100]){
+  struct song_node *first = firstSong(front, aInput[]);
+  struct song_node *current = first;
 
+  if(current != NULL && current->name == nInput){
+    current = current->next;
+    free(current);
+    return first;
+  }
 
+  while(current != NULL && current->name != nInput){
+    current = current->next;
+  }
 
+  if(current == NULL){
+    return first;
+  }
+
+  return current;
 }
 
 // find and return a pointer to the first song of an artist based on artist name
@@ -59,13 +75,14 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 struct song_node * randomElement(struct song_node * n);
 
 // remove a single specified node from the list
+//need to test -hana
 struct song_node * remove_node(struct song_node *front, char aInput[100], char nInput[100]){
   //find artist node --> current refers to the first song of the artist
   struct song_node *first = firstSong(front, aInput[]);
   struct song_node *current = first;
   struct song_node *previous = current;
 
-  if(current != NULL * current->name == nInput){
+  if(current != NULL && current->name == nInput){
     current = current->next;
     free(current);
     first = current->next;
