@@ -14,13 +14,11 @@ struct song_node * insert_front(struct song_node * input, char nInput[100], char
 }
 
 
-// insert nodes in order (alphabetical by Artist then by Song)
-// struct song_node * alphabetical(struct song_node * n, char artist[], char song[]){
-//
-//
-//
-//
-// }
+///insert nodes in order (alphabetical by Artist then by Song)
+struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput[]){
+
+
+}
 
 // print the entire list
 void print_list(struct song_node * x){
@@ -74,7 +72,12 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 
 
 // Return a pointer to random element in the list.
-// struct song_node * randomElement(struct song_node * n);
+struct song_node * randomElement(struct song_node * n){
+
+
+
+
+}
 
 // remove a single specified node from the list
 //need to test -hana
