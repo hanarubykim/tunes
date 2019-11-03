@@ -44,7 +44,7 @@ void printForLetter(struct song_node *input[27], char find){
     firstLetter = 27;
   }
   struct song_node * track = malloc(sizeof(struct song_node));
-  track = firstSong(input[firstLetter], nInput, aInput);
+  track = input[firstLetter];
   print_list(track);
 }
 

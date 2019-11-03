@@ -185,11 +185,30 @@ int main(){
   for (i = 0; i < 27 ; i++){
     input[i] = NULL;
   }
+  printf("\n===============================================\n");
+
+  printf("Testing the library!\n");
+  struct song_node *input[27];
+  int i;
+  for (i = 0; i < 27 ; i++){
+    input[i] = NULL;
+  }
+  //sorry christy this was the only way i was gonna stay sane while tryna code LMAO
   addSong(input, "home", "seventeen");
   addSong(input, "dwc", "seventeen");
   addSong(input, "mansae", "seventeen");
-  printForArtist(input, "seventeen");
+  addSong(input, "touch my body", "sistar");
+  addSong(input, "shake it", "sistar");
+  addSong(input, "alone", "sistar");
+  addSong(input, "heartbeat", "bts");
 
+  printf("Printing for the artist SEVENTEEN\n");
+  printForArtist(input, "seventeen");
+  printf("\n\n");
+
+  printf("Printing for the letter S");
+  printForLetter(input, 's');
+  printf("\n\n");
 
 
   return 0;
