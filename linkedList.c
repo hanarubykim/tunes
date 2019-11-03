@@ -6,20 +6,21 @@
 
 // insert nodes at the front
 struct song_node * insert_front(struct song_node * input, char nInput[100], char aInput[100]){
-  struct node *first = malloc(sizeof(struct song_node));
+  struct song_node *first = malloc(sizeof(struct song_node));
   strcpy(first->name, nInput);
   strcpy(first->artist, aInput);
   first->next = input;
   return first;
 }
 
+
 // insert nodes in order (alphabetical by Artist then by Song)
-struct song_node * alphabetical(struct song_node * n, char artist[], char song[]){
-
-
-
-
-}
+// struct song_node * alphabetical(struct song_node * n, char artist[], char song[]){
+//
+//
+//
+//
+// }
 
 // print the entire list
 void print_list(struct song_node * x){
@@ -59,6 +60,7 @@ struct song_node * findArtist_Song(struct song_node *input, char aInput[100], ch
   return current;
 }
 
+
 // find and return a pointer to the first song of an artist based on artist name
 struct song_node * firstSong(struct song_node *first, char aInput[100]){
   while (first != NULL){
@@ -72,13 +74,13 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 
 
 // Return a pointer to random element in the list.
-struct song_node * randomElement(struct song_node * n);
+// struct song_node * randomElement(struct song_node * n);
 
 // remove a single specified node from the list
 //need to test -hana
 struct song_node * remove_node(struct song_node *front, char aInput[100], char nInput[100]){
   //find artist node --> current refers to the first song of the artist
-  struct song_node *first = firstSong(front, aInput[]);
+  struct song_node *first = front;
   struct song_node *current = first;
   struct song_node *previous = current;
 
@@ -105,7 +107,7 @@ struct song_node * remove_node(struct song_node *front, char aInput[100], char n
 
 // free the entire list
 struct song_node * free_list(struct song_node *n){
-  struct node *temp;
+  struct song_node *temp;
   while (n->next != 0){
     printf("freeing node: %s by %s\n", n->name, n->artist);
     temp = n->next;
