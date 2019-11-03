@@ -13,7 +13,7 @@ struct song_node{
 struct song_node * insert_front(struct song_node * input, char nInput[100], char aInput[100]);
 
 // insert nodes in order (alphabetical by Artist then by Song)
-struct song_node * alphabetical(struct song_node * n, char artist[], char song[]);
+struct song_node * insert_order(struct song_node * n, char nInput[100], char aInput[100]);
 
 // print the entire list
 void print_list(struct song_node * x);
@@ -32,3 +32,6 @@ struct song_node * remove_node(struct song_node *front, char aInput[100], char n
 
 // free the entire list
 struct song_node * free_list(struct song_node *);
+
+//helper function
+int songcmp(struct song_node *a, char bName[100], char bArtist[100]);
