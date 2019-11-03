@@ -15,9 +15,31 @@ struct song_node * insert_front(struct song_node * input, char nInput[100], char
 
 
 ///insert nodes in order (alphabetical by Artist then by Song)
+// need to test -hana
 struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput[]){
+  struct song_node * insert = (struct song_node *) malloc(sizeof(struct song_node));
+  struct song_node * current = front;
+  struct song_node * track = front->next;
 
+  strcpy(insert->artist, aInput);
+  stcpy(insert->name, nInput);
 
+  while(current->next != NULL){
+    if(strcmp(current->artist, artist) < 0){
+      current = track;
+      track = track->next;
+     }else{
+       if(strcmp(current->name, name) < 0){
+         current = track;
+         track = track->next;
+       }else{
+         current->next = insert;
+         insert->next = track;
+       }
+     }
+   }
+   return front;
+ }
 }
 
 // print the entire list
