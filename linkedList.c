@@ -82,32 +82,30 @@ struct song_node * randomElement(struct song_node * n){
     return n;
 }
 
-//remove a single specified node from the list
-//need to test -hana
 struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
-  struct song_node *current = front;
-  struct song_node *previous = current;
-  struct song_node *firstSong = firstSong(front, aInput);
-
-  if(current != NULL && current->name == nInput){
-    current = current->next;
-    free(current);
-    first = current->next;
-    return first;
+  if(front == NULL){
+    printf("Empty.\n");
+    return front;
+  }else{
+    if(strcmp(front->artist, artist) == 0 && strcmp(front->name, name) == 0){
+      struct song_node * newFront = front->next;
+      free(front);
+      return newFront;
+    }else{
+      struct song_node * current = front;
+      struct song_node * track = front->next;
+      while(track != NULL){
+        if(strcmp(finder->artist, artist) == 0 && strcmp(finder->name, name) == 0){
+          current->next = track->next;
+          free(track);
+          return front;
+        }
+        current = track;
+        track = track->next;
+      }
+      return front;
+    }
   }
-
-  while(current != NULL && current->name != nInput){
-    previous = current;
-    current = current->next;
-  }
-
-  if(current == NULL){
-    return first;
-  }
-
-  previous->next = current->next;
-  free(current);
-  return first;
 }
 
 
