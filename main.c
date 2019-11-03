@@ -179,7 +179,16 @@ int main(){
   songs = remove_node(songs, "yellow ledbetter", "pearl jam");
   print_list(songs);
 
-
+  printf("Testing the library!");
+  struct song_node *input[27];
+  int i;
+  for (i = 0; i < 27 ; i++){
+    input[i] = NULL;
+  }
+  addSong(input, "home", "seventeen");
+  addSong(input, "dwc", "seventeen");
+  addSong(input, "mansae", "seventeen");
+  printForArtist(input, "seventeen");
 
 
 
