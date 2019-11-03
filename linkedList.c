@@ -12,33 +12,6 @@ struct song_node * insert_front(struct song_node * input, char nInput[100], char
 }
 
 
-///insert nodes in order (alphabetical by Artist then by Song)
-// need to test -hana
-struct song_node * alphabetical(struct song_node * n, char aInput[], char nInput[]){
-  struct song_node * insert = (struct song_node *) malloc(sizeof(struct song_node));
-  struct song_node * current = front;
-  struct song_node * track = front->next;
-
-  strcpy(insert->artist, aInput);
-  stcpy(insert->name, nInput);
-
-  while(current->next != NULL){
-    if(strcmp(current->artist, artist) < 0){
-      current = track;
-      track = track->next;
-     }else{
-       if(strcmp(current->name, name) < 0){
-         current = track;
-         track = track->next;
-       }else{
-         current->next = insert;
-         insert->next = track;
-       }
-     }
-   }
-   return front;
- }
-
 struct song_node * insert_order(struct song_node * n, char nInput[100], char aInput[100]){
   if (n == NULL){
     return insert_front(n, nInput, aInput);
@@ -112,10 +85,9 @@ struct song_node * randomElement(struct song_node * n){
 //remove a single specified node from the list
 //need to test -hana
 struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){
-  //find artist node --> current refers to the first song of the artist
-  struct song_node *first = front;
-  struct song_node *current = first;
+  struct song_node *current = front;
   struct song_node *previous = current;
+  struct song_node *firstSong = firstSong(front, aInput);
 
   if(current != NULL && current->name == nInput){
     current = current->next;
