@@ -13,6 +13,7 @@ void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
 }
 
 // Search for a song given song and artist name (return a pointer).
+// NEEDS TO BE TESTED
 struct song_node * findSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -23,6 +24,7 @@ struct song_node * findSong(struct song_node *input[27], char nInput[100], char 
 }
 
 // Search for an artist.
+// NEEDS TO BE TESTED
 struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -85,6 +87,7 @@ void shuffle(struct song_node *input[27]){
 }
 
 // Delete a song
+// NEEDS TO BE TESTED -- KIND OF WORKS ??
 void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   struct song_node * track = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -95,9 +98,10 @@ void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100])
 }
 
 // Clear the library.
+// NEEDS TO BE FIXED
 void clearLibrary(struct song_node *input[27]){
   int i;
-  for(i = 0 ; i < 27; i++){
-    printForLetter(input, i);
+  for(i = 0; i < 27; i++){
+    free_list(input[i]);
   }
 }
