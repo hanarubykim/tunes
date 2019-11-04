@@ -129,3 +129,9 @@ int songcmp(struct song_node *a, char bName[100], char bArtist[100]){
   }
   return strcmp(a->name, bName);
 }
+
+
+//helper function for shuffle
+void printNode(struct song_node *n){
+  printf(" %s by %s | ", n->artist, n->name);
+}

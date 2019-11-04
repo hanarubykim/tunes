@@ -35,3 +35,7 @@ struct song_node * free_list(struct song_node *);
 
 //helper function
 int songcmp(struct song_node *a, char bName[100], char bArtist[100]);
+
+
+//helper function for shuffle
+void printNode(struct song_node *n);
