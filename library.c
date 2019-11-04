@@ -25,7 +25,7 @@ struct song_node * findSong(struct song_node *input[27], char nInput[100], char 
 }
 
 // Search for an artist.
-// NEEDS TO BE TESTED
+//  TESTED AND WORKS
 struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -33,11 +33,6 @@ struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
     firstLetter = 27;
   }
   result = firstSong(input[firstLetter], aInput);
-
-  if(result == NULL){
-    printf("Artist not found.");
-  }
-  printf("Artist: %s | First Song: %s ", result->artist, result->name);
   return result;
 }
 

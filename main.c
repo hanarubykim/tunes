@@ -252,12 +252,44 @@ int main(){
 
   printf("\n===============================================\n");
 
+  printf("Testing findArtist\n\n");
+
+  printf("Looking for [sistar]\n");
+  p = findArtist(input, "sistar");
+  if (p == NULL){
+    printf("artist not found\n");
+  }
+  else{
+    printf("artist found!\n");
+    print_list(p);
+  }
+
+  printf("\nLooking for [bruno mars]\n");
+  p = findArtist(input, "bruno mars");
+  if (p == NULL){
+    printf("artist not found\n");
+  }
+  else{
+    printf("artist found!\n");
+    print_list(p);
+  }
+
+
+
+  printf("\n===============================================\n");
+
   printf("Testing deleteSong\n\n");
 
   printf("Let's delete the song dwc!\n");
   deleteSong(input, "dwc", "seventeen");
   printLibrary(input);
   printf("\n\n");
+
+  printf("Let's delete the song shake it!\n");
+  deleteSong(input, "shake it", "sistar");
+  printLibrary(input);
+  printf("\n\n");
+
 
   return 0;
 }
