@@ -76,16 +76,17 @@ void printLibrary(struct song_node *input[27]){
 }
 
 // Shuffle - print out a series of randomly chosen songs.
-// DOES NOT WORK. GETS SEG FAULT
+// TESTED AND WORKS
 void shuffle(struct song_node *input[27]){
-  int i;
-  for(i = 0; i < 3; i++){
-    int index = rand() % 26;
-    struct song_node *song = randomElement(input[index]);
-    if (song != NULL){
-      printf(" %s by %s |", song->name, song->artist);
+  int r = rand() % 27;
+  int i = 2; //will get 2 random songs
+  while (i > 0){
+    if (input[r] != NULL){
+      printNode(randomElement(input[r]));
       printf("\n");
+      i--;
     }
+    r = rand() % 27;
   }
 }
 

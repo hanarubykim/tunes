@@ -354,10 +354,10 @@ int main(){
   printLibrary(input);
 
 
-  // printf("\n===============================================\n");
-  //
-  // printf("Testing shuffle\n");
-  // shuffle(input);
+  printf("\n===============================================\n");
+
+  printf("Testing shuffle\n");
+  shuffle(input);
 
 
 
