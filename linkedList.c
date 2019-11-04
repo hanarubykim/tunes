@@ -111,8 +111,8 @@ struct song_node * remove_node(struct song_node *front, char nInput[100], char a
 
 // free the entire list
 struct song_node * free_list(struct song_node *n){
-  struct song_node *temp;
-  while (n->next != 0){
+  struct song_node *temp = n;
+  while (n != NULL){
     printf("freeing node: %s by %s\n", n->name, n->artist);
     temp = n->next;
     free(n);

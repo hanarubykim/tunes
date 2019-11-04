@@ -179,12 +179,11 @@ int main(){
   songs = remove_node(songs, "yellow ledbetter", "pearl jam");
   print_list(songs);
 
-  printf("Testing the library!");
-  struct song_node *input[27];
-  int i;
-  for (i = 0; i < 27 ; i++){
-    input[i] = NULL;
-  }
+  printf("\n===============================================\n");
+
+  printf("\nTesting free_list:\n");
+  songs = free_list(songs);
+
   printf("\n===============================================\n");
 
   printf("Testing the library!\n");
@@ -197,17 +196,47 @@ int main(){
   printLibrary(input);
   printf("\n\n");
 
+  printf("\n===============================================\n");
+
+  printf("Testing addSong\n\n");
+
+  printf("Adding home by seventeen\n");
   addSong(input, "home", "seventeen");
+
+  printf("Adding dwc by seventeen\n");
   addSong(input, "dwc", "seventeen");
+
+  printf("Adding mansae by seventeen\n");
   addSong(input, "mansae", "seventeen");
+
+  printf("Adding touch my body by sistar\n");
   addSong(input, "touch my body", "sistar");
+
+  printf("Adding shake it by sistar\n");
   addSong(input, "shake it", "sistar");
+
+  printf("Adding alone by sistar\n");
   addSong(input, "alone", "sistar");
+
+  printf("Adding hearbeat by bts\n");
   addSong(input, "heartbeat", "bts");
 
-  printf("Printing for the artist SEVENTEEN\n");
+  printf("\n===============================================\n");
+
+  printf("Testing printForArtist\n\n");
+
+  printf("\n\nPrinting for the artist SEVENTEEN\n");
   printForArtist(input, "seventeen");
   printf("\n\n");
+
+  printf("\n\nPrinting for the artist SEVENTEEN\n");
+  printForArtist(input, "sistar");
+  printf("\n\n");
+
+  printf("\n===============================================\n");
+
+  printf("Testing printForLetter\n\n");
+
 
   printf("Printing for the letter S\t");
   printForLetter(input, 's');
@@ -220,6 +249,10 @@ int main(){
   printf("Let's print out everything!\n");
   printLibrary(input);
   printf("\n\n");
+
+  printf("\n===============================================\n");
+
+  printf("Testing deleteSong\n\n");
 
   printf("Let's delete the song dwc!\n");
   deleteSong(input, "dwc", "seventeen");
