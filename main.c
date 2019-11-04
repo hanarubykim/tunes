@@ -290,6 +290,14 @@ int main(){
   printLibrary(input);
   printf("\n\n");
 
+  printf("\n===============================================\n");
+
+  printf("Testing clearLibrary\n\n");
+  clearLibrary(input);
+
+  printf("\n\nPrint library after clearing\n");
+  printLibrary(input);
+
 
   return 0;
 }

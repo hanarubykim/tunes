@@ -96,6 +96,6 @@ void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100])
 void clearLibrary(struct song_node *input[27]){
   int i;
   for(i = 0; i < 27; i++){
-    free_list(input[i]);
+    input[i] = free_list(input[i]);
   }
 }
