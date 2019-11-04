@@ -13,7 +13,7 @@ void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
 }
 
 // Search for a song given song and artist name (return a pointer).
-// NEEDS TO BE TESTED
+// TESTED AND WORKS
 struct song_node * findSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -76,9 +76,17 @@ void printLibrary(struct song_node *input[27]){
 }
 
 // Shuffle - print out a series of randomly chosen songs.
+// DOES NOT WORK. GETS SEG FAULT
 void shuffle(struct song_node *input[27]){
-
-
+  int i;
+  for(i = 0; i < 3; i++){
+    int index = rand() % 26;
+    struct song_node *song = randomElement(input[index]);
+    if (song != NULL){
+      printf(" %s by %s |", song->name, song->artist);
+      printf("\n");
+    }
+  }
 }
 
 // Delete a song
@@ -92,7 +100,7 @@ void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100])
 }
 
 // Clear the library.
-// NEEDS TO BE FIXED
+// TESTED AND WORKS
 void clearLibrary(struct song_node *input[27]){
   int i;
   for(i = 0; i < 27; i++){

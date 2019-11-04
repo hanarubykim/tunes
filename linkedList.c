@@ -72,14 +72,14 @@ struct song_node * firstSong(struct song_node *first, char aInput[100]){
 // Return a pointer to random element in the list.
 struct song_node * randomElement(struct song_node * n){
   int i = rand() % 25 + 1;
-    struct song_node * current = n;
-    for(;i > 0;i--){
-      if(n->next == NULL){
-        n = current;
-      }
-      n = n->next;
+  struct song_node * current = n;
+  for(;i > 0;i--){
+    if(n->next == NULL){
+      n = current;
     }
-    return n;
+    n = n->next;
+  }
+  return n;
 }
 
 struct song_node * remove_node(struct song_node *front, char nInput[100], char aInput[100]){

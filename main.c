@@ -274,6 +274,39 @@ int main(){
     print_list(p);
   }
 
+  printf("\n===============================================\n");
+
+  printf("Testing findSong\n\n");
+
+  printf("Looking for heartbeat by bts\n");
+  p = findSong(input, "heartbeat", "bts");
+  if (p == NULL){
+    printf("song not found\n");
+  }
+  else{
+    printf("song found!\n");
+    print_list(p);
+  }
+
+  printf("\nLooking for mansae by seventeen\n");
+  p = findSong(input, "mansae", "seventeen");
+  if (p == NULL){
+    printf("song not found\n");
+  }
+  else{
+    printf("song found!\n");
+    print_list(p);
+  }
+
+  printf("\nLooking for shake it off by taylor swift\n");
+  p = findSong(input, "shake it off", "taylor swift");
+  if (p == NULL){
+    printf("song not found\n");
+  }
+  else{
+    printf("song found!\n");
+    print_list(p);
+  }
 
 
   printf("\n===============================================\n");
@@ -297,6 +330,35 @@ int main(){
 
   printf("\n\nPrint library after clearing\n");
   printLibrary(input);
+
+  printf("\n===============================================\n");
+
+  printf("Adding songs to empty library\n\n");
+
+  printf("Adding thunderstruck by ac/dc\n");
+  addSong(input, "thunderstruck", "ac/dc");
+
+  printf("Adding alive by pearl jam\n");
+  addSong(input, "alive", "pearl jam");
+
+  printf("Adding even flow by pearl jam\n");
+  addSong(input, "even flow", "pearl jam");
+
+  printf("Adding yellow ledbetter by pearl jam\n");
+  addSong(input, "yellow ledbetter", "pearl jam");
+
+  printf("Adding time by pink floyd\n");
+  addSong(input, "time", "pink floyd");
+
+  printf("\nPrint library\n");
+  printLibrary(input);
+
+
+  // printf("\n===============================================\n");
+  //
+  // printf("Testing shuffle\n");
+  // shuffle(input);
+
 
 
   return 0;
