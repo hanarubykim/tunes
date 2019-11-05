@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linkedList.h"
+#include <time.h>
 
 // Add song nodes.
 void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
@@ -71,6 +72,7 @@ void printLibrary(struct song_node *input[27]){
 
 // Shuffle - print out a series of randomly chosen songs.
 void shuffle(struct song_node *input[27]){
+  srand(time(NULL));
   int x;
   for(x = 0; x < 3; x++){
     int randomlyChosen = rand() % 27;
