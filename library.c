@@ -3,7 +3,6 @@
 #include "linkedList.h"
 
 // Add song nodes.
-//TESTED AND WORKS
 void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   int firstLetter = aInput[0] - 'a';
   if(firstLetter < 0){
@@ -13,7 +12,6 @@ void addSong(struct song_node *input[27], char nInput[100], char aInput[100]){
 }
 
 // Search for a song given song and artist name (return a pointer).
-// TESTED AND WORKS
 struct song_node * findSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -25,7 +23,6 @@ struct song_node * findSong(struct song_node *input[27], char nInput[100], char 
 }
 
 // Search for an artist.
-//  TESTED AND WORKS
 struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
   struct song_node * result = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -37,7 +34,6 @@ struct song_node * findArtist(struct song_node *input[27], char aInput[100]){
 }
 
 // Print out all the entries under a certain letter.
-//TESTED AND WORKS
 void printForLetter(struct song_node *input[27], char find){
   int firstLetter = find - 'a';
   if(firstLetter < 0){
@@ -49,7 +45,6 @@ void printForLetter(struct song_node *input[27], char find){
 }
 
 // Print out all the songs of a certain artist
-//TESTED AND WORKS
 void printForArtist(struct song_node *input[27], char aInput[100]){
   struct song_node * track = malloc(sizeof(struct song_node));
   int firstLetter = aInput[0] - 'a';
@@ -67,7 +62,6 @@ void printForArtist(struct song_node *input[27], char aInput[100]){
 
 
 // Print out the entire library.
-// TESTED AND WORKS
 void printLibrary(struct song_node *input[27]){
   int i;
   for(i = 'a'; i < 'a' + 27; i++){
@@ -76,22 +70,20 @@ void printLibrary(struct song_node *input[27]){
 }
 
 // Shuffle - print out a series of randomly chosen songs.
-// TESTED AND WORKS
 void shuffle(struct song_node *input[27]){
-  int r = rand() % 27;
-  int i = 2; //will get 2 random songs
-  while (i > 0){
-    if (input[r] != NULL){
-      printNode(randomElement(input[r]));
-      printf("\n");
-      i--;
+  int x;
+  for(x = 0; x < 5; x++){
+    int randomlyChosen = rand() % 27;
+    while(input[randomlyChosen] == NULL){
+      randomlyChosen = rand() % 27;
     }
-    r = rand() % 27;
+    printf("Shuffled song #%d: ")
+    printNode(randomElement(input[randomlyChosen]));
   }
 }
 
+
 // Delete a song
-// TESTED AND WORKS
 void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100]){
   int firstLetter = aInput[0] - 'a';
   if(firstLetter < 0){
@@ -101,7 +93,6 @@ void deleteSong(struct song_node *input[27], char nInput[100], char aInput[100])
 }
 
 // Clear the library.
-// TESTED AND WORKS
 void clearLibrary(struct song_node *input[27]){
   int i;
   for(i = 0; i < 27; i++){
