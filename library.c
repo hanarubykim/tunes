@@ -72,13 +72,13 @@ void printLibrary(struct song_node *input[27]){
 // Shuffle - print out a series of randomly chosen songs.
 void shuffle(struct song_node *input[27]){
   int x;
-  for(x = 0; x < 5; x++){
+  for(x = 0; x < 3; x++){
     int randomlyChosen = rand() % 27;
     while(input[randomlyChosen] == NULL){
       randomlyChosen = rand() % 27;
     }
-    printf("Shuffled song #%d: ")
     printNode(randomElement(input[randomlyChosen]));
+    printf("\n");
   }
 }
 
